@@ -14,17 +14,18 @@ from tensorflow.keras.datasets import mnist
 #train the data ->
 eta = 0.1
 arrOfWeight = []
+for i in range(10):
+    arrOfWeight.append(np.zeros(len(trainX[0])))
 arrOfIts = []
 arrOfeIn = []
 maxIts = 1000
 
 #one vs all 0-9
-for i in range(10):
-    wInit = np.zeros(len(trainX[0]))
-    numIts, w, e_in = costFunction.logisticReg(trainX,trainy,wInit,maxIts,eta)
-    arrOfWeight.append(w)
-    arrOfeIn.append(e_in)
-    arrOfIts.append(numIts)
+numIts, w, e_in = costFunction.logisticReg(trainX,trainy,arrOfWeight,maxIts,eta)
+arrOfWeight.append(w)
+arrOfeIn.append(e_in)
+arrOfIts.append(numIts)
+    
 
 #prediction algorithm: if it is not labeled as the item then we move onto another label
 #display the first four classification and print results:
@@ -34,7 +35,6 @@ for i in range(5):
     #print the result:
     print("Actual label: "+str(testy[i]))
     print("prediction: ")
-
 
 
 
