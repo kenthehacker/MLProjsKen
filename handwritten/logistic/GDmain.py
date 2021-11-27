@@ -21,13 +21,19 @@ maxIts = 1000
 #one vs all 0-9
 for i in range(10):
     wInit = np.zeros(len(trainX[0]))
-    numIts, w, e_in = costFunction.logisticReg(trainX,i,wInit,maxIts,eta)
+    numIts, w, e_in = costFunction.logisticReg(trainX,trainy,wInit,maxIts,eta)
     arrOfWeight.append(w)
     arrOfeIn.append(e_in)
     arrOfIts.append(numIts)
 
 #prediction algorithm: if it is not labeled as the item then we move onto another label
 #display the first four classification and print results:
+for i in range(5):
+    plt.imshow(testX[i])
+    plt.show()
+    #print the result:
+    print("Actual label: "+str(testy[i]))
+    print("prediction: ")
 
 
 

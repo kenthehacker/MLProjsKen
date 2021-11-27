@@ -22,3 +22,11 @@ def logisticReg(X,y,w_init,max_its,eta):
         e_in = e_in+np.log(1+math.exp(-y[i]*np.matmul(np.transpose(w),X[i])))
     e_in = e_in/len(X)  
     return numIts, w, e_in
+
+
+
+'''
+
+TODO: currently we are not throwing in the right y value, what we want is to throw in the correct y label
+
+'''
